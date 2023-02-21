@@ -9,7 +9,17 @@ module.exports = {
         './src/**/*.{js,ts,jsx,tsx}',
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                socialBg: '#F5F7FB',
+                socialBlue: '#218DFA',
+            },
+        },
     },
-    plugins: [],
+    plugins: [
+        'postcss-import',
+        'tailwindcss/nesting',
+        'tailwindcss',
+        'autoprefixer',
+    ],
 }

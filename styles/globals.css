@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        /* background-color: #f5f7fb; */
+        @apply bg-socialBg;
+    }
+}

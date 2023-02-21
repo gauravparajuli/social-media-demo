@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Card from '../components/Card'
 
 const Home: NextPage = () => {
     return (
@@ -13,7 +14,15 @@ const Home: NextPage = () => {
                 />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
-            <h1 className='text-3xl bg-green-500'>Hello world</h1>
+            <div className='flex container mx-auto mt-4 gap-2'>
+                <div className='w-1/3'>
+                    <Card>test links</Card>
+                </div>
+                <div className='grow'>
+                    <Card>form goes here</Card>
+                    posts
+                </div>
+            </div>
         </div>
     )
 }
