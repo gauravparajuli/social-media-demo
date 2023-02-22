@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import Card from '../components/Card'
 import NavigationCard from '../components/NavigationCard'
 import PostFormCard from '../components/PostFormCard'
+import PostCard from '../components/PostCard'
 
 const Home: NextPage = () => {
     return (
@@ -17,12 +17,12 @@ const Home: NextPage = () => {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <div className='flex container mx-auto mt-4 gap-4'>
-                <div className='w-1/3'>
+                <div className='w-1/4'>
                     <NavigationCard />
                 </div>
-                <div className='grow'>
+                <div className='w-3/4'>
                     <PostFormCard />
-                    posts
+                    <PostCard />
                 </div>
             </div>
         </div>
