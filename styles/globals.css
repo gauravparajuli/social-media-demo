@@ -6,5 +6,6 @@
     body {
         /* background-color: #f5f7fb; */
         @apply bg-socialBg;
+        color: #333;
     }
 }

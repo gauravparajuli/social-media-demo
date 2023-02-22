@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Card from '../components/Card'
 import NavigationCard from '../components/NavigationCard'
+import PostFormCard from '../components/PostFormCard'
 
 const Home: NextPage = () => {
     return (
@@ -20,7 +21,7 @@ const Home: NextPage = () => {
                     <NavigationCard />
                 </div>
                 <div className='grow'>
-                    <Card>form goes here</Card>
+                    <PostFormCard />
                     posts
                 </div>
             </div>
