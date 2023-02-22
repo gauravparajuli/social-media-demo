@@ -5,7 +5,9 @@ interface props {
 }
 
 const Card = ({ children }: props) => {
-    return <div className='bg-white shadow-md p-4 rounded-md'>{children}</div>
+    return (
+        <div className='bg-white shadow-md p-4 rounded-md mb-5'>{children}</div>
+    )
 }
 
 export default Card
