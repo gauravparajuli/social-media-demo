@@ -1,16 +1,12 @@
 import React from 'react'
 import Card from './Card'
+import Avatar from './Avatar'
 
 const PostFormCard = () => {
     return (
         <Card>
             <div className='flex gap-3'>
-                <div className='w-12 h-12 rounded-full overflow-hidden'>
-                    <img
-                        src='https://images.unsplash.com/photo-1591084728795-1149f32d9866?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80'
-                        alt=''
-                    />
-                </div>
+                <Avatar />
                 <textarea
                     className='grow p-3 h-12'
                     name=''
