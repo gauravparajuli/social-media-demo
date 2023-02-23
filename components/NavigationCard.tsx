@@ -88,7 +88,14 @@ const NavigationCard = () => {
                         </svg>
                         Saved Posts
                     </Link>
-                    <Link href='' className={nonActiveElement}>
+                    <Link
+                        href='/notifications'
+                        className={
+                            pathname === '/notifications'
+                                ? activeElement
+                                : nonActiveElement
+                        }
+                    >
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             fill='none'

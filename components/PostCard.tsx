@@ -3,7 +3,6 @@ import { ClickOutHandler } from 'react-clickout-ts'
 import Link from 'next/link'
 import Card from './Card'
 import Avatar from './Avatar'
-import Image from 'next/image'
 
 const PostCard = () => {
     const [showDropdown, setShowDropdown] = useState(false)
@@ -18,15 +17,22 @@ const PostCard = () => {
         <Card>
             <div className='flex gap-2 items-start relative'>
                 <div>
-                    <Avatar />
+                    <Link href='/profile'>
+                        <Avatar />
+                    </Link>
                 </div>
                 <div className='grow'>
                     <p>
                         <Link href='/profile'>
-                            <span className='font-semibold'>John Doe</span>{' '}
+                            <span className='font-semibold hover:underline'>
+                                John Doe
+                            </span>{' '}
                             shared a{' '}
                         </Link>
-                        <Link href='' className='text-socialBlue'>
+                        <Link
+                            href=''
+                            className='text-socialBlue hover:underline'
+                        >
                             album
                         </Link>
                     </p>
