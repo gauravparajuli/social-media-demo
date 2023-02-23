@@ -1,5 +1,6 @@
 import React, { useState, MouseEvent } from 'react'
 import { ClickOutHandler } from 'react-clickout-ts'
+import Link from 'next/link'
 import Card from './Card'
 import Avatar from './Avatar'
 import Image from 'next/image'
@@ -21,8 +22,13 @@ const PostCard = () => {
                 </div>
                 <div className='grow'>
                     <p>
-                        <a className='font-semibold'>John Doe</a> shared a{' '}
-                        <a className='text-socialBlue'>album</a>
+                        <Link href='/profile'>
+                            <span className='font-semibold'>John Doe</span>{' '}
+                            shared a{' '}
+                        </Link>
+                        <Link href='' className='text-socialBlue'>
+                            album
+                        </Link>
                     </p>
                     <p className='text-sm text-gray-500'>2 hours ago</p>
                 </div>
@@ -46,7 +52,7 @@ const PostCard = () => {
                         <ClickOutHandler onClickOut={toggleDropdown}>
                             <div>
                                 <div className='absolute right-0 shadow-md top-10 bg-white rounded-md p-3 border border-gray-100 '>
-                                    <a href='' className='flex p-2 gap-2'>
+                                    <Link href='' className='flex p-2 gap-2'>
                                         <svg
                                             xmlns='http://www.w3.org/2000/svg'
                                             fill='none'
@@ -62,8 +68,8 @@ const PostCard = () => {
                                             />
                                         </svg>
                                         Save Post
-                                    </a>
-                                    <a href='' className='flex p-2 gap-2'>
+                                    </Link>
+                                    <Link href='' className='flex p-2 gap-2'>
                                         <svg
                                             xmlns='http://www.w3.org/2000/svg'
                                             fill='none'
@@ -79,8 +85,8 @@ const PostCard = () => {
                                             />
                                         </svg>
                                         Delete Post
-                                    </a>
-                                    <a href='' className='flex p-2 gap-2'>
+                                    </Link>
+                                    <Link href='' className='flex p-2 gap-2'>
                                         <svg
                                             xmlns='http://www.w3.org/2000/svg'
                                             fill='none'
@@ -96,8 +102,8 @@ const PostCard = () => {
                                             />
                                         </svg>
                                         Hide Post
-                                    </a>
-                                    <a href='' className='flex p-2 gap-2'>
+                                    </Link>
+                                    <Link href='' className='flex p-2 gap-2'>
                                         <svg
                                             xmlns='http://www.w3.org/2000/svg'
                                             fill='none'
@@ -113,8 +119,8 @@ const PostCard = () => {
                                             />
                                         </svg>
                                         Turn Notifications
-                                    </a>
-                                    <a href='' className='flex p-2 gap-2'>
+                                    </Link>
+                                    <Link href='' className='flex p-2 gap-2'>
                                         <svg
                                             xmlns='http://www.w3.org/2000/svg'
                                             fill='none'
@@ -130,7 +136,7 @@ const PostCard = () => {
                                             />
                                         </svg>
                                         Report
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </ClickOutHandler>

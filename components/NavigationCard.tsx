@@ -1,4 +1,6 @@
 import React from 'react'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 import Card from './Card'
 
@@ -6,31 +8,40 @@ const NavigationCard = () => {
     const activeElement =
         'flex py-3 gap-3 bg-socialBlue text-white -mx-10 px-10 rounded-md shadow-md'
     const nonActiveElement =
-        'flex py-3 gap-3 hover:bg-blue-200 rounded-md -mx-5 px-5 transition-all hover:shadow-md hover:scale-105'
+        'flex py-3 gap-3 hover:bg-blue-200 rounded-md -mx-10 px-10 transition-all hover:shadow-md hover:scale-105'
+
+    const router = useRouter()
+    const { pathname } = router
+    console.log(pathname)
 
     return (
         <div>
             <Card>
                 <div className='px-4 py-2'>
                     <h2 className='text-gray-400 mb-4'>Navigation</h2>
-                    <a href='' className={activeElement}>
+                    <Link
+                        href='/'
+                        className={
+                            pathname === '/' ? activeElement : nonActiveElement
+                        }
+                    >
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             fill='none'
                             viewBox='0 0 24 24'
-                            stroke-width='1.5'
+                            strokeWidth='1.5'
                             stroke='currentColor'
                             className='w-6 h-6'
                         >
                             <path
-                                stroke-linecap='round'
-                                stroke-linejoin='round'
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
                                 d='M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25'
                             />
                         </svg>
                         Home
-                    </a>
-                    <a href='' className={nonActiveElement}>
+                    </Link>
+                    <Link href='' className={nonActiveElement}>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             fill='none'
@@ -46,8 +57,8 @@ const NavigationCard = () => {
                             />
                         </svg>
                         Friends
-                    </a>
-                    <a href='' className={nonActiveElement}>
+                    </Link>
+                    <Link href='' className={nonActiveElement}>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             fill='none'
@@ -63,8 +74,8 @@ const NavigationCard = () => {
                             />
                         </svg>
                         Saved Posts
-                    </a>
-                    <a href='' className={nonActiveElement}>
+                    </Link>
+                    <Link href='' className={nonActiveElement}>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             fill='none'
@@ -80,8 +91,8 @@ const NavigationCard = () => {
                             />
                         </svg>
                         Notifications
-                    </a>
-                    <a href='' className={nonActiveElement}>
+                    </Link>
+                    <Link href='' className={nonActiveElement}>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             fill='none'
@@ -97,7 +108,7 @@ const NavigationCard = () => {
                             />
                         </svg>
                         Logout
-                    </a>
+                    </Link>
                 </div>
             </Card>
         </div>
