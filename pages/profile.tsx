@@ -4,8 +4,24 @@ import Card from '../components/Card'
 import Avatar from '../components/Avatar'
 import Link from 'next/link'
 import PostCard from '../components/PostCard'
+import FriendInfo from '../components/FriendInfo'
+import { useRouter } from 'next/router'
 
-const profile = () => {
+const Profile = () => {
+    const router = useRouter()
+    const { asPath: pathname } = router
+
+    // console.log(router)
+
+    const isPosts = pathname === '/profile'
+    const isAbout = pathname.includes('about')
+    const isFriends = pathname.includes('friends')
+    const isPhotos = pathname.includes('photos')
+
+    const activeTabClasses =
+        'flex gap-1 items-center bg-socialBlue text-white rounded-md px-2 py-1'
+    const tabClasses = 'flex gap-1 items-center px-2 py-1'
+
     return (
         <Layout title='Profile'>
             <Card padding={false}>
@@ -30,8 +46,8 @@ const profile = () => {
                     </div>
                     <div className='ml-4 flex my-4'>
                         <Link
-                            href=''
-                            className='flex gap-1 items-center bg-socialBlue text-white rounded-md px-2 py-1'
+                            href='/profile'
+                            className={isPosts ? activeTabClasses : tabClasses}
                         >
                             <svg
                                 xmlns='http://www.w3.org/2000/svg'
@@ -50,8 +66,8 @@ const profile = () => {
                             Posts
                         </Link>
                         <Link
-                            href=''
-                            className='flex gap-1 items-center px-2 py-1'
+                            href='/profile/about'
+                            className={isAbout ? activeTabClasses : tabClasses}
                         >
                             <svg
                                 xmlns='http://www.w3.org/2000/svg'
@@ -70,8 +86,10 @@ const profile = () => {
                             About
                         </Link>
                         <Link
-                            href=''
-                            className='flex gap-1 items-center px-2 py-1'
+                            href='/profile/friends'
+                            className={
+                                isFriends ? activeTabClasses : tabClasses
+                            }
                         >
                             <svg
                                 xmlns='http://www.w3.org/2000/svg'
@@ -90,8 +108,8 @@ const profile = () => {
                             Friends
                         </Link>
                         <Link
-                            href=''
-                            className='flex gap-1 items-center px-2 py-1'
+                            href='/profile/photos'
+                            className={isPhotos ? activeTabClasses : tabClasses}
                         >
                             <svg
                                 xmlns='http://www.w3.org/2000/svg'
@@ -112,9 +130,91 @@ const profile = () => {
                     </div>
                 </div>
             </Card>
-            <PostCard />
+            {isPosts && <PostCard />}
+
+            {isAbout && (
+                <Card>
+                    <h2 className='text-3xl mb-2'>About me</h2>
+                    <p className='mb-2 text-sm'>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Dolor tempora fugiat ad cupiditate impedit atque
+                        repellat corrupti officia reprehenderit dolorem facere
+                        expedita error tenetur, quia ut blanditiis temporibus
+                        reiciendis eveniet.
+                    </p>
+                    <p className='mb-2 text-sm'>
+                        Lorem ipsum dolor, sit amet consectetur adip
+                        text-smisicing elit. Dolor tempora fugiat ad cupiditate
+                        impedit atque repellat corrupti officia reprehenderit
+                        dolorem facere expedita error tenetur, quia ut
+                        blanditiis temporibus reiciendis eveniet.
+                    </p>
+                </Card>
+            )}
+
+            {isFriends && (
+                <Card>
+                    <h2 className='text-3xl mb-2'>Friends</h2>
+                    <div>
+                        <div className='border-b p-4 -mx-4'>
+                            <FriendInfo />
+                        </div>
+                        <div className='border-b p-4 -mx-4'>
+                            <FriendInfo />
+                        </div>
+                        <div className='border-b p-4 -mx-4'>
+                            <FriendInfo />
+                        </div>
+                        <div className='border-b p-4 -mx-4'>
+                            <FriendInfo />
+                        </div>
+                        <div className='border-b p-4 -mx-4'>
+                            <FriendInfo />
+                        </div>
+                        <div className='border-b p-4 -mx-4'>
+                            <FriendInfo />
+                        </div>
+                        <div className='border-b p-4 -mx-4'>
+                            <FriendInfo />
+                        </div>
+                    </div>
+                </Card>
+            )}
+
+            {isPhotos && (
+                <Card>
+                    <h2 className='text-3xl mb-2'>Photos</h2>
+                    <div className='grid grid-cols-2 gap-2'>
+                        <div className='rounded-md overflow-hidden h-48 shadow-md flex items-center'>
+                            <img
+                                src='https://images.unsplash.com/photo-1598395927056-8d895e701c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=60'
+                                alt=''
+                            />
+                        </div>
+
+                        <div className='rounded-md overflow-hidden h-48 shadow-md flex items-center'>
+                            <img
+                                src='https://images.unsplash.com/photo-1503152394-c571994fd383?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Z3JlZWNlfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
+                                alt=''
+                            />
+                        </div>
+                        <div className='rounded-md overflow-hidden h-48 shadow-md flex items-center'>
+                            <img
+                                src='https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Z3JlZWNlfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
+                                alt=''
+                            />
+                        </div>
+                        <div className='rounded-md overflow-hidden h-48 shadow-md flex items-center'>
+                            <img
+                                src='https://images.unsplash.com/photo-1598395927056-8d895e701c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=60'
+                                alt=''
+                            />
+                        </div>
+                    </div>
+                </Card>
+            )}
         </Layout>
     )
 }
 
-export default profile
+export default Profile

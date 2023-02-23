@@ -11,8 +11,7 @@ const NavigationCard = () => {
         'flex py-3 gap-3 hover:bg-blue-200 rounded-md -mx-10 px-10 transition-all hover:shadow-md hover:scale-105'
 
     const router = useRouter()
-    const { pathname } = router
-    console.log(pathname)
+    const { asPath: pathname } = router
 
     return (
         <div>
@@ -41,7 +40,14 @@ const NavigationCard = () => {
                         </svg>
                         Home
                     </Link>
-                    <Link href='' className={nonActiveElement}>
+                    <Link
+                        href='/profile/friends'
+                        className={
+                            pathname === '/profile/friends'
+                                ? activeElement
+                                : nonActiveElement
+                        }
+                    >
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             fill='none'
@@ -58,7 +64,14 @@ const NavigationCard = () => {
                         </svg>
                         Friends
                     </Link>
-                    <Link href='' className={nonActiveElement}>
+                    <Link
+                        href='/saved'
+                        className={
+                            pathname === '/saved'
+                                ? activeElement
+                                : nonActiveElement
+                        }
+                    >
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             fill='none'
